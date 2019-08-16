@@ -1,0 +1,14 @@
+<launch>
+	<!-- connect mavros to gazebo -->
+	<include file="$(find aa241x_mission)/launch/mavros_gazebo.launch" />
+
+	<!-- the mode controller node -->
+	<node pkg="basic_controller" type="modeController.py" name="modeController" output="screen" />
+
+	<!-- the controller node -->
+	<node pkg="basic_controller" type="controller.py" name="controller" output="screen"/>
+	<!-- user input node -->
+	<node pkg="basic_controller" type="user_input.py" name="userInput" output="screen"/>
+	<!-- navigator node -->
+	<node pkg="basic_controller" type="navigator.py" name="navigator" output="screen"/>
+</launch>
